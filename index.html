@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScrollMagic</title>
+    <style>
+      @import url("https://github.com/webfontworld/NanumSquare.git");
+
+      * {
+        font-family: "NanumSquare";
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .section {
+        width: 100%;
+      }
+
+      .container {
+        position: relative;
+        max-width: 1200px;
+        height: 600px;
+        padding: 20px;
+        margin: auto;
+        background-color: rgb(255, 145, 0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .section:nth-child(even) {
+        background-color: rgb(234, 45, 75);
+      }
+
+      h1 {
+        font-size: 130px;
+        color: #c2e8ff;
+        position: absolute;
+        top: 0;
+        margin: 0;
+      }
+
+      .box {
+        width: 120px;
+        height: 120px;
+        margin: 10px;
+        background-color: rgb(51, 255, 0);
+      }
+
+      .back-to-position {
+        /* opacity:0; */
+        transition: 1s;
+      }
+
+      .back-to-position.to-right {
+        transform: translateX(-150px);
+      }
+
+      .back-to-position.to-left {
+        transform: translateX(150px);
+      }
+
+      .show .back-to-position {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .show .back-to-position.delay-0 {
+        transition-delay: 0s;
+      }
+
+      .show .back-to-position.delay-1 {
+        transition-delay: 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="section scroll-spy show">
+      <div class="container">
+        <h1>가나</h1>
+        <div class="box back-to-position to-right delay-0"></div>
+        <div class="box back-to-position to-left delay-1"></div>
+      </div>
+    </section>
+
+    <section class="section scroll-spy">
+      <div class="container">
+        <h1>다라</h1>
+        <div class="box back-to-position to-right delay-0"></div>
+        <div class="box back-to-position to-left delay-1"></div>
+      </div>
+    </section>
+
+    <section class="section scroll-spy">
+      <div class="container">
+        <h1>마바</h1>
+        <div class="box back-to-position to-right delay-0"></div>
+        <div class="box back-to-position to-left delay-1"></div>
+      </div>
+    </section>
+
+    <section class="section scroll-spy">
+      <div class="container">
+        <h1>사아</h1>
+        <div class="box back-to-position to-right delay-0"></div>
+        <div class="box back-to-position to-left delay-1"></div>
+      </div>
+    </section>
+
+    <section class="section scroll-spy">
+      <div class="container">
+        <h1>자차</h1>
+        <div class="box back-to-position to-right delay-0"></div>
+        <div class="box back-to-position to-left delay-1"></div>
+      </div>
+    </section>
+
+    <section class="section scroll-spy">
+      <div class="container">
+        <h1>카타</h1>
+        <div class="box back-to-position to-right delay-0"></div>
+        <div class="box back-to-position to-left delay-1"></div>
+      </div>
+    </section>
+
+    <section class="section scroll-spy">
+      <div class="container">
+        <h1>파하</h1>
+        <div class="box back-to-position to-right delay-0"></div>
+        <div class="box back-to-position to-left delay-1"></div>
+      </div>
+    </section>
+
+    <script>
+      const spyEls = document.querySelectorAll(".section.scroll-spy");
+      const controller = new ScrollMagic.Controller();
+
+      spyEls.forEach(function (spyEl) {
+        new ScrollMagic.Scene({ triggerElement: spyEl }).setClassToggle(spyEl, "show").addTo(controller);
+      });
+    </script>
+  </body>
+</html>
